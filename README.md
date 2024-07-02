@@ -1,66 +1,66 @@
-## Foundry
+# Foundry Fund Me
+Welcome to the Foundry Fund Me project! This is a decentralized crowdfunding platform built using Solidity and Foundry. The project allows users to create fundraising campaigns, contribute to existing campaigns, and withdraw funds when the goal is met.
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+# Table of Contents
+- Installation
+- Usage
+- Contracts
+- Testing
+- Contributing
+- License
+- Installation
+- Clone the repository:
 
-Foundry consists of:
+## Instalation
+### 1. Clone the repository
+```bash
+git clone https://github.com/Podziuu/foundry-fund-me.git
+cd foundry-fund-me
+Install dependencies:
+```
+### 2. Ensure you have Foundry installed. If not, install it:
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
+``` bash
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
+Build the project:
+```
+### 3. Build the project
+```bash
+forge build
+```
 
 ## Usage
+### Deploying Contracts
+To deploy the contracts, you can use the forge CLI. First, ensure you have set up your environment variables correctly:
+#### 1. Set up .env file:
 
-### Build
+Create a .env file in the root directory and add the following variables:
 
-```shell
-$ forge build
+```bash
+PRIVATE_KEY=<your-private-key>
+RPC_URL=<your-rpc-url>
+```
+#### 2.Deploy the contract:
+
+```bash
+forge script script/Deploy.s.sol --broadcast --verify
 ```
 
-### Test
+### Interacting with the Contracts
+After deploying the contracts, you can interact with them using any Ethereum-compatible wallet or through the scripts provided.
 
-```shell
-$ forge test
+### Contracts
+The main contract in this project is FundMe.sol, which handles the creation of fundraising campaigns and contributions.
+
+FundMe.sol: Main contract for managing crowdfunding campaigns.
+### Testing
+To run the tests, use the following command:
+
+```bash
+forge test
 ```
+Make sure to review the test cases in the test directory to understand how the contract is being tested.
 
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+## License
+This project is licensed under the MIT License. See the LICENSE file for more details.
